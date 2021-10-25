@@ -18,6 +18,11 @@ class ApplicationController < Sinatra::Base
     redirect '/'
   end
   
+  get '/gossips/:id' do 
+    erb:show, locals: {gossip: Gossip.find(params['id']), id: params['id']}
+  end
+  
+
 
   run! if app_file == $0
 end
